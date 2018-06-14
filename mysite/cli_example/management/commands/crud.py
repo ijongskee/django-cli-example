@@ -135,7 +135,7 @@ class Command(BaseCommand):
 		def choose_city(city_id):
 			try:
 				return City.objects.get(pk=city_id)
-			except:
+			except City.DoesNotExist:
 				print("City does not exist") 
 
 		def choose_resident(resident_id):
@@ -195,7 +195,9 @@ class Command(BaseCommand):
 		
 		if options['new_resident']:
 			view_city()
+			
 			city = choose_city(int(input("Enter the ID of your city : ")))
+			
 			view_baranggay_by_city(city)
 			a = 1
 			while a == 1:
@@ -227,8 +229,16 @@ class Command(BaseCommand):
 			resident = choose_resident(int(input("Enter resident ID to update : ")))
 
 			view_city()
-			city = choose_city(int(input("Enter the ID of your city : ")))
-			view_baranggay_by_city(city)
+			c = 1
+			while c==1 :
+				try:
+					city = choose_city(int(input("Enter the ID of your city : ")))
+
+					view_baranggay_by_city(city)
+					c=0
+				except :
+					c=1
+					print("Try Again")
 			a = 1
 			while a == 1:
 				try:
