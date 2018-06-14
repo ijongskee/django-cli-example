@@ -15,7 +15,7 @@ Using django-cli-example
 
 ##USAGE
 
-Change into the outer mysite directory, if you haven’t already, and run the following commands(eg. **C:\Users\user_name\django-cli-sample\mysite>**)
+Change into the outer mysite directory, if you haven’t already.
 
 ## CITY
 
