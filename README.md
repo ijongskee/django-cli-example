@@ -14,9 +14,10 @@ Using django-cli-example
 
 
 ##USAGE
+
 Change into the outer mysite directory, if you haven’t already, and run the following commands(eg. **C:\Users\user_name\django-cli-sample\mysite>**)
 
-##CITY
+## CITY
 
 **ADDING NEW CITY**
 
@@ -73,7 +74,7 @@ Choose the city you want to delete by entering the ID, then you'll see the follo
 Successfully Deleted SAMPLE CITY
 ```
 
-##BARANGGAY
+## BARANGGAY
 
 **ADDING NEW CITY**
 
@@ -143,7 +144,7 @@ After choosing the ID you'll see:
 Successfully Deleted asdasd
 ```
 
-##RESIDENT
+## RESIDENT
 
 **ADDING NEW RESIDENT**
 Run this code on your command line:
