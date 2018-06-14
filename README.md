@@ -177,12 +177,117 @@ After Entering date needed you'll see:
 Successfully saved the data
 ```
 **UPDATING RESIDENT**
+Run this code on your command line:
 ```
 python manage.py crud --update_resident
+```
+
+You’ll see the following output on the command line:
+```
          ID         |     First Name     |    Middle Name     |     Last Name      |        City        |     Baranggay      |       Street       |    House Number    |    Date Updated    |
          1          | SAMPLE FIRST NAME  | SAMPLE MIDDLE NAME |  SAMPLE LAST NAME  |        asd         |      SAMPLE_b      |   SAMPLE STREET    |   SAMPLE HOUSE NO  |      06/14/18      |
 Enter resident ID to update :
 ```
+Now pick the resident you want to edit by entering its ID, after picking you'll see:
+```
+All Cities
+    ID    |   City   |Date Updated|
+    2     |SAMPLE CITY | 06/14/18 |
+Enter the ID of your city :
+```
+After choosing the CITY ID you'll see:
+```
+Baranggays from city 
+    ID    |   City   |Baranggay |Date Updated|
+    2     |   asd    | SAMPLE_b | 06/14/18 |
+Enter the ID of your Baranggay : 
+```
+After choosing the baranggay ID you'll see:
+```
+Enter street:
+Enter House Number 
+Enter your First Name:
+Enter you Middle Name : 
+Enter your Last Name :
+```
+After Entering date needed you'll see:
+```
+Successfully saved the data
+```
+**DELETING RESINDENT**
 
+Run this code on your command line:
+```
+python manage.py crud --delete_resident
+```
 
+You’ll see the following output on the command line:
+```
+         ID         |     First Name     |    Middle Name     |     Last Name      |        City        |     Baranggay      |       Street       |    House Number    |    Date Updated    |
+         1          |       sdasd        |       asdas        |       dasda        |        asd         |      SAMPLE_b      |        asd         |   SAMPLE HOUSE NO  |      06/14/18      |
+Enter resident ID to update :
+```
+After choosing the ID you'll see:
+```
+Successfully deleted resident
+```
+**GET RESIDENT(S) UPDATE TODAY/CURRENT DAY**
 
+```
+python manage.py crud --get_resident_updated_today
+```
+You’ll see the following output
+```
+    ID    |First Name|Middle Name|Last Name |   City   |Baranggay |  Street  |House Number|Date Updated|
+    2     |SAMPLE FIRSTNAME|SAMPLE MIDDLE NAME|SAMPLE LAST NAME|SAMPLE CITY|SAMPLE BARANGGAY|SAMPLE STREET|SAMPLE STREET| 06/14/18 |
+```
+
+**SEARCHING RESIDENT(S) BY  LAST NAME**
+
+Run this code on your command line (NOTE: sample is a data encoded by user):
+```
+python manage.py search --get_resident_by_last_name sample
+```
+You’ll see the following output that contains "sample" in First Name:
+
+```
+         ID         |     First Name     |    Middle Name     |     Last Name      |        City        |     Baranggay      |       Street       |    House Number    |    Date Updated    |
+         2          |  SAMPLE FIRSTNAME  | SAMPLE MIDDLE NAME |  SAMPLE LAST NAME  |    SAMPLE CITY     |  SAMPLE BARANGGAY  |   SAMPLE STREET    |   SAMPLE STREET    |      06/14/18      |
+```
+**SEARCHING RESIDENT(S) BY FIRST NAME**
+
+Run this code on your command line (NOTE: sample is a data encoded by user):
+
+```
+python manage.py search --get_resident_by_first_name sample
+```
+You’ll see the following output that contains "sample" text/string in First Name:
+```
+         ID         |     First Name     |    Middle Name     |     Last Name      |        City        |     Baranggay      |       Street       |    House Number    |    Date Updated    |
+         2          |  SAMPLE FIRSTNAME  | SAMPLE MIDDLE NAME |  SAMPLE LAST NAME  |    SAMPLE CITY     |  SAMPLE BARANGGAY  |   SAMPLE STREET    |   SAMPLE STREET    |      06/14/18      |
+```
+**SEARCHING RESIDENT(S) BY BARANGGAY**
+
+Run this code on your command line (NOTE: sample is a data encoded by user):
+
+```
+python manage.py search --get_resident_by_baranggay sample
+```
+You’ll see the following output that contains "sample" text/string in baranggay:
+```
+         ID         |     First Name     |    Middle Name     |     Last Name      |        City        |     Baranggay      |       Street       |    House Number    |    Date Updated    |
+         2          |  SAMPLE FIRSTNAME  | SAMPLE MIDDLE NAME |  SAMPLE LAST NAME  |    SAMPLE CITY     |  SAMPLE BARANGGAY  |   SAMPLE STREET    |   SAMPLE STREET    |      06/14/18      |
+```
+
+**SEARCHING RESIDENT(S) BY CITY**
+
+Run this code on your command line (NOTE: sample is a data encoded by user):
+
+```
+python manage.py search --get_resident_by_city sample
+```
+You’ll see the following output that contains "sample" text/string in city:
+```
+         ID         |     First Name     |    Middle Name     |     Last Name      |        City        |     Baranggay      |       Street       |    House Number    |    Date Updated    |
+         2          |  SAMPLE FIRSTNAME  | SAMPLE MIDDLE NAME |  SAMPLE LAST NAME  |    SAMPLE CITY     |  SAMPLE BARANGGAY  |   SAMPLE STREET    |   SAMPLE STREET    |      06/14/18      |
+```
