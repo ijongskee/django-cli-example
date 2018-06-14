@@ -22,6 +22,8 @@ Change into the outer mysite directory, if you haven’t already.
 **ADDING NEW CITY**
 
 Run this code on your command line:
+
+
 ```
 $ python manage.py crud --add_city
 ```
@@ -43,8 +45,8 @@ $ python manage.py crud --update_city
 You’ll see the following output on the command line:
 ```
 All Cities
-    ID    |   City   |Date Updated|
-    1     |  SAMPLE CITY  | 06/14/18 |
+         ID         |        City        |    Date Updated    |
+         4          |    SAMPLE CITY     |      06/14/18      |
 Enter the City ID you want to update:
 ```
 Choose the city you want to update by entering the ID, then you'll be asked to enter the new City name:
@@ -65,8 +67,8 @@ $ python manage.py crud --delete_city
 You’ll see the following output on the command line:
 ```
 All Cities
-    ID    |   City   |Date Updated|
-    1     |SAMPLE CITY | 06/14/18 |
+         ID         |        City        |    Date Updated    |
+         4          |    SAMPLE CITY     |      06/14/18      |
 Enter the ID of the City you wish to delete :
 ```
 Choose the city you want to delete by entering the ID, then you'll see the following after:
@@ -85,8 +87,8 @@ $ python manage.py crud --add_baranggay
 You’ll see the following output on the command line:
 ```
 All Cities
-    ID    |   City   |Date Updated|
-    1     |SAMPLE CITY | 06/14/18 |
+         ID         |        City        |    Date Updated    |
+         4          |    SAMPLE CITY     |      06/14/18      |
 Enter the City ID  :
 ```
 Enter the the ID of the city where the baranggay belong in, then you'll see the following after:
@@ -107,15 +109,15 @@ $ python manage.py crud --update_baranggay
 You’ll see the following output on the command line:
 ```
 All Baranggay
-    ID    |   City   |Baranggay |Date Updated|
-    1     |   SAMPLE CITY | SAMPLE_B | 06/14/18 |
+         ID         |        City        |     Baranggay      |    Date Updated    |
+         5          |    SAMPLE CITY     |  SAMPLE BARANGGAY  |      06/14/18      |
 Enter the Baranggay ID you want to update :
 ```
 Enter the Baraggay ID you wish to update, then you'll see the following:
 ```
 All Cities
-    ID    |   City   |Date Updated|
-    2     |   SAMPLE CITY    | 06/14/18 |
+         ID         |        City        |    Date Updated    |
+         4          |    SAMPLE CITY     |      06/14/18      |
 Enter City ID :
 ```
 After entering the city ID you'll see
@@ -135,8 +137,8 @@ $ python manage.py crud --delete_baranggay
 You’ll see the following output on the command line:
 ```
 All Baranggay
-    ID    |   City   |Baranggay |Date Updated|
-    1     |   SAMPLECITY   |  SAMPLE_B  | 06/14/18 |
+         ID         |        City        |     Baranggay      |    Date Updated    |
+         5          |    SAMPLE CITY     |  SAMPLE BARANGGAY  |      06/14/18      |  
 Enter the ID of the baranggay you wish to delete :
 ```
 After choosing the ID you'll see:
@@ -160,9 +162,9 @@ Enter the ID of your city :
 ```
 After choosing the CITY ID you'll see:
 ```
-Baranggays from city 
-    ID    |   City   |Baranggay |Date Updated|
-    2     |   asd    | SAMPLE_b | 06/14/18 |
+Baranggays from city SAMPLE CITY
+         ID         |        City        |     Baranggay      |    Date Updated    |
+         5          |    SAMPLE CITY     |  SAMPLE BARANGGAY  |      06/14/18      |
 Enter the ID of your Baranggay : 
 ```
 After choosing the baranggay ID you'll see:
@@ -185,22 +187,22 @@ python manage.py crud --update_resident
 
 You’ll see the following output on the command line:
 ```
-         ID         |     First Name     |    Middle Name     |     Last Name      |        City        |     Baranggay      |       Street       |    House Number    |    Date Updated    |
-         1          | SAMPLE FIRST NAME  | SAMPLE MIDDLE NAME |  SAMPLE LAST NAME  |        asd         |      SAMPLE_b      |   SAMPLE STREET    |   SAMPLE HOUSE NO  |      06/14/18      |
+          ID         |     First Name     |    Middle Name     |     Last Name      |        City        |     Baranggay      |       Street       |    House Number    |    Date Updated    |
+         4          | SAMPLE FIRST NAME  | SAMPLE MIDDLE NAME |  SAMPLE LAST NAME  |    SAMPLE CITY     |  SAMPLE BARANGGAY  |   SAMPLE STREET    |  SAMPLE HOUSE NO   |      06/14/18      |
 Enter resident ID to update :
 ```
 Now pick the resident you want to edit by entering its ID, after picking you'll see:
 ```
 All Cities
-    ID    |   City   |Date Updated|
-    2     |SAMPLE CITY | 06/14/18 |
+         ID         |        City        |    Date Updated    |
+         4          |    SAMPLE CITY     |      06/14/18      |
 Enter the ID of your city :
 ```
 After choosing the CITY ID you'll see:
 ```
-Baranggays from city 
-    ID    |   City   |Baranggay |Date Updated|
-    2     |   asd    | SAMPLE_b | 06/14/18 |
+Baranggays from city SAMPLE CITY
+         ID         |        City        |     Baranggay      |    Date Updated    |
+         5          |    SAMPLE CITY     |  SAMPLE BARANGGAY  |      06/14/18      |
 Enter the ID of your Baranggay : 
 ```
 After choosing the baranggay ID you'll see:
@@ -225,7 +227,7 @@ python manage.py crud --delete_resident
 You’ll see the following output on the command line:
 ```
          ID         |     First Name     |    Middle Name     |     Last Name      |        City        |     Baranggay      |       Street       |    House Number    |    Date Updated    |
-         1          |       sdasd        |       asdas        |       dasda        |        asd         |      SAMPLE_b      |        asd         |   SAMPLE HOUSE NO  |      06/14/18      |
+         4          | SAMPLE FIRST NAME  | SAMPLE MIDDLE NAME |  SAMPLE LAST NAME  |    SAMPLE CITY     |  SAMPLE BARANGGAY  |   SAMPLE STREET    |  SAMPLE HOUSE NO   |      06/14/18      |
 Enter resident ID to update :
 ```
 After choosing the ID you'll see:
@@ -239,8 +241,8 @@ python manage.py crud --get_resident_updated_today
 ```
 You’ll see the following output
 ```
-    ID    |First Name|Middle Name|Last Name |   City   |Baranggay |  Street  |House Number|Date Updated|
-    2     |SAMPLE FIRSTNAME|SAMPLE MIDDLE NAME|SAMPLE LAST NAME|SAMPLE CITY|SAMPLE BARANGGAY|SAMPLE STREET|SAMPLE STREET| 06/14/18 |
+     ID         |     First Name     |    Middle Name     |     Last Name      |        City        |     Baranggay      |       Street       |    House Number    |    Date Updated    |
+         4          | SAMPLE FIRST NAME  | SAMPLE MIDDLE NAME |  SAMPLE LAST NAME  |    SAMPLE CITY     |  SAMPLE BARANGGAY  |   SAMPLE STREET    |  SAMPLE HOUSE NO   |      06/14/18      |
 ```
 
 **SEARCHING RESIDENT(S) BY  LAST NAME**
@@ -249,11 +251,11 @@ Run this code on your command line (NOTE: sample is a data encoded by user):
 ```
 python manage.py search --get_resident_by_last_name sample
 ```
-You’ll see the following output that contains "sample" in First Name:
+You’ll see the following output that contains "sample" in Last Name:
 
 ```
          ID         |     First Name     |    Middle Name     |     Last Name      |        City        |     Baranggay      |       Street       |    House Number    |    Date Updated    |
-         2          |  SAMPLE FIRSTNAME  | SAMPLE MIDDLE NAME |  SAMPLE LAST NAME  |    SAMPLE CITY     |  SAMPLE BARANGGAY  |   SAMPLE STREET    |   SAMPLE STREET    |      06/14/18      |
+         4          | SAMPLE FIRST NAME  | SAMPLE MIDDLE NAME |  SAMPLE LAST NAME  |    SAMPLE CITY     |  SAMPLE BARANGGAY  |   SAMPLE STREET    |  SAMPLE HOUSE NO   |      06/14/18      |
 ```
 **SEARCHING RESIDENT(S) BY FIRST NAME**
 
@@ -264,8 +266,8 @@ python manage.py search --get_resident_by_first_name sample
 ```
 You’ll see the following output that contains "sample" text/string in First Name:
 ```
-         ID         |     First Name     |    Middle Name     |     Last Name      |        City        |     Baranggay      |       Street       |    House Number    |    Date Updated    |
-         2          |  SAMPLE FIRSTNAME  | SAMPLE MIDDLE NAME |  SAMPLE LAST NAME  |    SAMPLE CITY     |  SAMPLE BARANGGAY  |   SAMPLE STREET    |   SAMPLE STREET    |      06/14/18      |
+          ID         |     First Name     |    Middle Name     |     Last Name      |        City        |     Baranggay      |       Street       |    House Number    |    Date Updated    |
+         4          | SAMPLE FIRST NAME  | SAMPLE MIDDLE NAME |  SAMPLE LAST NAME  |    SAMPLE CITY     |  SAMPLE BARANGGAY  |   SAMPLE STREET    |  SAMPLE HOUSE NO   |      06/14/18      |
 ```
 **SEARCHING RESIDENT(S) BY BARANGGAY**
 
@@ -276,8 +278,8 @@ python manage.py search --get_resident_by_baranggay sample
 ```
 You’ll see the following output that contains "sample" text/string in baranggay:
 ```
-         ID         |     First Name     |    Middle Name     |     Last Name      |        City        |     Baranggay      |       Street       |    House Number    |    Date Updated    |
-         2          |  SAMPLE FIRSTNAME  | SAMPLE MIDDLE NAME |  SAMPLE LAST NAME  |    SAMPLE CITY     |  SAMPLE BARANGGAY  |   SAMPLE STREET    |   SAMPLE STREET    |      06/14/18      |
+          ID         |     First Name     |    Middle Name     |     Last Name      |        City        |     Baranggay      |       Street       |    House Number    |    Date Updated    |
+         4          | SAMPLE FIRST NAME  | SAMPLE MIDDLE NAME |  SAMPLE LAST NAME  |    SAMPLE CITY     |  SAMPLE BARANGGAY  |   SAMPLE STREET    |  SAMPLE HOUSE NO   |      06/14/18      |
 ```
 
 **SEARCHING RESIDENT(S) BY CITY**
@@ -290,5 +292,5 @@ python manage.py search --get_resident_by_city sample
 You’ll see the following output that contains "sample" text/string in city:
 ```
          ID         |     First Name     |    Middle Name     |     Last Name      |        City        |     Baranggay      |       Street       |    House Number    |    Date Updated    |
-         2          |  SAMPLE FIRSTNAME  | SAMPLE MIDDLE NAME |  SAMPLE LAST NAME  |    SAMPLE CITY     |  SAMPLE BARANGGAY  |   SAMPLE STREET    |   SAMPLE STREET    |      06/14/18      |
+         4          | SAMPLE FIRST NAME  | SAMPLE MIDDLE NAME |  SAMPLE LAST NAME  |    SAMPLE CITY     |  SAMPLE BARANGGAY  |   SAMPLE STREET    |  SAMPLE HOUSE NO   |      06/14/18      |
 ```

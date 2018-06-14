@@ -1,24 +1,21 @@
-import datetime
-
 from django.db import models
 from django.utils import timezone
 
 
-
 class City(models.Model):
-    city = models.CharField(max_length=200)
+    name = models.CharField(max_length=200)
     date_created = models.DateTimeField("date created")
 
     def __str__(self):
-        return self.city
+        return self.name
 
 
 class Baranggay(models.Model):
     city = models.ForeignKey(City, on_delete=models.CASCADE)
-    baranggay = models.CharField(max_length=200)
+    name = models.CharField(max_length=200)
     date_created = models.DateTimeField("date_created")
     def __str__(self):
-        return self.baranggay
+        return self.name
 
 
 class Resident(models.Model):

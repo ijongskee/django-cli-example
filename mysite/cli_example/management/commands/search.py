@@ -50,8 +50,8 @@ class Command(BaseCommand):
                 try:
                     resident= resident_instance.objects.filter(last_name__contains=search_string)
                     for obj in resident:
-                        print("{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format(obj.id, obj.first_name, obj.middle_name, obj.last_name, obj.city.city,
-                            obj.baranggay.baranggay, obj.street, obj.house_no, 
+                        print("{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format(obj.id, obj.first_name, obj.middle_name, obj.last_name, obj.city.city_name,
+                            obj.baranggay.baranggay_name, obj.street, obj.house_no, 
                             obj.date_created.strftime('%m/%d/%y')))
                 except resident_instance.DoesNotExist:
                     raise CommandError('resident does not exist')
@@ -64,8 +64,8 @@ class Command(BaseCommand):
                 try:
                     resident = resident_instance.objects.filter(first_name__contains=search_string)
                     for obj in resident:
-                        print("{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format(obj.id, obj.first_name, obj.middle_name, obj.last_name, obj.city.city,
-                            obj.baranggay.baranggay, obj.street, obj.house_no, 
+                        print("{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format(obj.id, obj.first_name, obj.middle_name, obj.last_name, obj.city.city_name,
+                            obj.baranggay_name, obj.street, obj.house_no, 
                             obj.date_created.strftime('%m/%d/%y')))
                 except resident_instance.DoesNotExist:
                     raise CommandError('resident does not exist')
@@ -83,8 +83,8 @@ class Command(BaseCommand):
                     for baranggay_obj in baranggay:
                         resident = resident_instance.objects.filter(baranggay = baranggay_obj.id)
                         for obj in resident:
-                            print("{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format(obj.id, obj.first_name, obj.middle_name, obj.last_name, obj.city.city,
-                                obj.baranggay.baranggay, obj.street, obj.house_no, 
+                            print("{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format(obj.id, obj.first_name, obj.middle_name, obj.last_name, obj.city.city_name,
+                                obj.baranggay_name, obj.street, obj.house_no, 
                                 obj.date_created.strftime('%m/%d/%y')))
                 
                 except resident_instance.DoesNotExist:
@@ -102,8 +102,8 @@ class Command(BaseCommand):
                     for city_obj in city:
                         resident = resident_instance.objects.filter(city=city_obj.id)
                         for obj in resident:
-                            print("{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format(obj.id, obj.first_name, obj.middle_name, obj.last_name, obj.city.city,
-                                obj.baranggay.baranggay, obj.street, obj.house_no, 
+                            print("{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format(obj.id, obj.first_name, obj.middle_name, obj.last_name, obj.city.city_name,
+                                obj.baranggay_name, obj.street, obj.house_no, 
                                 obj.date_created.strftime('%m/%d/%y')))
                 
                 except resident_instance.DoesNotExist:
