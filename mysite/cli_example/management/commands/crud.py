@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from cli_example.models import City as city_instance, Baranggay as baranggay_instance, Residence as residence_instance
+from cli_example.models import City as city_instance, Baranggay as baranggay_instance, Resident as resident_instance
 from django.utils import timezone
 from datetime import datetime
 
@@ -55,46 +55,46 @@ class Command(BaseCommand):
 		)
 
 		parser.add_argument(
-			'--add_residence',
+			'--add_resident',
 			action = 'store_true',
-			dest = 'new_residence',
-			help = 'new residence'
+			dest = 'new_resident',
+			help = 'new resident'
 		)
 		parser.add_argument(
-			'--update_residence',
+			'--update_resident',
 			action = 'store_true',
-			dest = 'update_residence',
-			help = 'update residence'
+			dest = 'update_resident',
+			help = 'update resident'
 		)
 		parser.add_argument(
-			'--delete_residence',
+			'--delete_resident',
 			action = 'store_true',
-			dest = 'delete_residence',
-			help= 'delete residence'
+			dest = 'delete_resident',
+			help= 'delete resident'
 		)
 		parser.add_argument(
-			'--get_residence_updated_today',
+			'--get_resident_updated_today',
 			action = 'store_true',
-			dest = 'get_residence_updated_today',
-			help= 'get residence updated today'
+			dest = 'get_resident_updated_today',
+			help= 'get resident updated today'
 		)
 
 	def handle(self, *args, **options):
 		
 		
-		def view_residence():
+		def view_resident():
 			
 			try:
-				residence  = residence_instance.objects.all()
+				resident  = resident_instance.objects.all()
 				
 				print("{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|".format("ID","First Name","Middle Name","Last Name", "City",
 					"Baranggay", "Street", "House Number","Date Updated"))
-				for obj in residence:
+				for obj in resident:
 					print("{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|".format(obj.id, obj.first_name, obj.middle_name, obj.last_name, obj.city.city,
 						obj.baranggay.baranggay, obj.street, obj.house_no, 
-						obj.residence_date_created.strftime('%m/%d/%y')))
-			except residence_instance.DoesNotExist:
-				raise CommandError('Residence does not exist')
+						obj.resident_date_created.strftime('%m/%d/%y')))
+			except resident_instant.DoesNotExist:
+				raise CommandError('Resident does not exist')
 		
 		def view_city():
 			try:
@@ -138,11 +138,11 @@ class Command(BaseCommand):
 			except:
 				print("City does not exist") 
 
-		def choose_residence(residence_id):
+		def choose_resident(resident_id):
 			try:
-				return residence_instance.objects.get(pk=residence_id)
+				return resident_instance.objects.get(pk=resident_id)
 			except:
-				print("Residence does not exist")
+				print("Resident does not exist")
 		
 		"""Options"""	
 
@@ -194,7 +194,7 @@ class Command(BaseCommand):
 			print('Successfully Deleted ' + baranggay_obj.baranggay)
 			baranggay_obj.delete()
 		
-		if options['new_residence']:
+		if options['new_resident']:
 			view_city()
 			city_obj = choose_city(int(input("Enter the ID of your city : ")))
 			view_baranggay_by_city(city_obj)
@@ -215,17 +215,17 @@ class Command(BaseCommand):
 			middle_name = str(input("Enter you Middle Name"))
 			last_name = str(input("Enter your Last Name"))
 
-			residence_obj = residence_instance(city= city_obj , residence_date_created= timezone.now(), street = street ,
+			resident_obj = resident_instance(city= city_obj , resident_date_created= timezone.now(), street = street ,
 						 first_name = first_name, middle_name=middle_name , last_name=last_name, house_no=house_number,
 						 baranggay = baranggay_obj)			
 
-			residence_obj.save()
+			resident_obj.save()
 			print("Successfully saved the data")
 
-		if options['update_residence']:
-			view_residence()
+		if options['update_resident']:
+			view_resident()
 
-			residence_obj = choose_residence(int(input("Enter residence ID to update : ")))
+			resident_obj = choose_resident(int(input("Enter resident ID to update : ")))
 
 			view_city()
 			city_obj = choose_city(int(input("Enter the ID of your city : ")))
@@ -242,34 +242,34 @@ class Command(BaseCommand):
 					print("Try Again")
 
 
-			residence_obj.city = city_obj
-			residence_obj.baranggay  = baranggay_obj		
-			residence_obj.street = str(input("Enter street:"))
-			residence_obj.house_number = str(input("Enter House Number"))		
-			residence_obj.first_name = str(input("Enter your First Name: "))
-			residence_obj.middle_name = str(input("Enter you Middle Name"))
-			residence_obj.last_name = str(input("Enter your Last Name"))
-			residence_obj.save()
+			resident_obj.city = city_obj
+			resident_obj.baranggay  = baranggay_obj		
+			resident_obj.street = str(input("Enter street:"))
+			resident_obj.house_number = str(input("Enter House Number"))		
+			resident_obj.first_name = str(input("Enter your First Name: "))
+			resident_obj.middle_name = str(input("Enter you Middle Name"))
+			resident_obj.last_name = str(input("Enter your Last Name"))
+			resident_obj.save()
 			print("Successfully saved the data")
 
-		if options['delete_residence']:
-			view_residence()
-			residence_obj = choose_residence(int(input("Enter residence ID to update : ")))
-			residence_obj.delete()
-			print("Successfully deleted residence")
+		if options['delete_resident']:
+			view_resident()
+			resident_obj = choose_resident(int(input("Enter resident ID to update : ")))
+			resident_obj.delete()
+			print("Successfully deleted resident")
 		
-		if options['get_residence_updated_today']:
+		if options['get_resident_updated_today']:
 			try:
-				residence  = residence_instance.objects.filter(residence_date_created__date=timezone.now() )
+				resident  = resident_instance.objects.filter(resident_date_created__date=timezone.now() )
 				
 				print("{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|".format("ID","First Name","Middle Name","Last Name", "City",
 					"Baranggay", "Street", "House Number","Date Updated"))
-				for obj in residence:
+				for obj in resident:
 					print("{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|".format(obj.id, obj.first_name, obj.middle_name, obj.last_name, obj.city.city,
 						obj.baranggay.baranggay, obj.street, obj.house_no, 
-						obj.residence_date_created.strftime('%m/%d/%y')))
-			except residence_instance.DoesNotExist:
-				raise CommandError('Residence does not exist')
+						obj.resident_date_created.strftime('%m/%d/%y')))
+			except resident_instance.DoesNotExist:
+				raise CommandError('Resident does not exist')
 
     				
 

@@ -19,7 +19,7 @@ class Baranggay(models.Model):
 	def __str__(self):
 		return self.baranggay
 
-class Residence(models.Model):
+class Resident(models.Model):
 	
 	first_name = models.CharField(max_length=200)
 	middle_name = models.CharField(max_length=200)
@@ -29,7 +29,7 @@ class Residence(models.Model):
 	street = models.CharField(max_length=200)
 	house_no = models.CharField(max_length=200)
 
-	residence_date_created = models.DateTimeField("date_created")
+	resident_date_created = models.DateTimeField("date_created")
 	def __str__(self):
 		return self.first_name
 	
