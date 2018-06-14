@@ -10,7 +10,7 @@ class City(models.Model):
 		return self.city
 
 	def was_published_recently(self):
-		return self.pub_date >= timezone.now() - datetime.timedelta(days-1)
+		return self.date_created >= timezone.now() - datetime.timedelta(days-1)
 
 class Baranggay(models.Model):
 	city = models.ForeignKey(City, on_delete=models.CASCADE)
@@ -19,7 +19,7 @@ class Baranggay(models.Model):
 	def __str__(self):
 		return self.baranggay
 
-class Recidence(models.Model):
+class Residence(models.Model):
 	
 	first_name = models.CharField(max_length=200)
 	middle_name = models.CharField(max_length=200)
@@ -29,8 +29,9 @@ class Recidence(models.Model):
 	street = models.CharField(max_length=200)
 	house_no = models.CharField(max_length=200)
 
-	recidence_date_created = models.DateTimeField("date_created")
+	residence_date_created = models.DateTimeField("date_created")
 	def __str__(self):
 		return self.first_name
+	
 
 	
