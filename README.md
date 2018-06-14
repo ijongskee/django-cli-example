@@ -2,23 +2,23 @@
 Using django-cli-example
 
 ## Features
-1.**ADDING,UPDATING,DELETING,VIEWING CITY** 
+1.**ADDING,UPDATING,DELETING CITY** 
 
-2.**ADDING,UPDATING,DELETING,VIEWING BARANGGAY**
+2.**ADDING,UPDATING,DELETING BARANGGAY**
 
-3.**ADDING,UPDATING,DELETING,VIEWING RESIDENT**
+3.**ADDING,UPDATING,DELETING RESIDENT**
 
 4.**SEARCHING RESIDENT BY LAST NAME, FIRST NAME, OR BARANGGAY**
 
 5.**VIEWING THE RESIDENT ADDED ON CURRENT DATE**
 
 
-## USAGE
+##USAGE
 Change into the outer mysite directory, if you haven’t already, and run the following commands(eg. **C:\Users\user_name\django-cli-sample\mysite>**)
 
-**CITY**
+##CITY
 
-**Adding new City**
+**ADDING NEW CITY**
 
 Run this code on your command line:
 ```
@@ -28,12 +28,13 @@ You’ll see the following output on the command line:
 ```
 Enter City Name:
 ```
-Enter the city name you prefer to add hit enter and you'll see the following after:
+Enter the city name you prefer to add, hit enter and you'll see the following after:
 ```
 City Saved Successfully
 ```
 
-**Updating City**
+**UPDATING CITY**
+
 Run this code on your command line:
 ```
 $ python manage.py crud --update_city
@@ -51,5 +52,137 @@ Enter new City Name:
 ```
 Enter the city name you prefer to add hit enter and you'll see the following after:
 ```
-Successfuly Update
+Successfuly Updated
 ```
+
+**DELETING CITY**
+
+Run this code on your command line:
+```
+$ python manage.py crud --delete_city
+```
+You’ll see the following output on the command line:
+```
+All Cities
+    ID    |   City   |Date Updated|
+    1     |SAMPLE CITY | 06/14/18 |
+Enter the ID of the City you wish to delete :
+```
+Choose the city you want to delete by entering the ID, then you'll see the following after:
+```
+Successfully Deleted SAMPLE CITY
+```
+
+##BARANGGAY
+
+**ADDING NEW CITY**
+
+Run this code on your command line:
+```
+$ python manage.py crud --add_baranggay
+```
+You’ll see the following output on the command line:
+```
+All Cities
+    ID    |   City   |Date Updated|
+    1     |SAMPLE CITY | 06/14/18 |
+Enter the City ID  :
+```
+Enter the the ID of the city where the baranggay belong in, then you'll see the following after:
+```
+Please Enter baranggay Name:
+```
+Enter the baranggay name you prefer to add, hit enter and you'll see the following after:
+```
+Baranggay saved Successfully
+```
+
+**UPDATING BARANGGAY**
+
+Run this code on your command line:
+```
+$ python manage.py crud --update_baranggay
+```
+You’ll see the following output on the command line:
+```
+All Baranggay
+    ID    |   City   |Baranggay |Date Updated|
+    1     |   SAMPLE CITY | SAMPLE_B | 06/14/18 |
+Enter the Baranggay ID you want to update :
+```
+Enter the Baraggay ID you wish to update, then you'll see the following:
+```
+All Cities
+    ID    |   City   |Date Updated|
+    2     |   SAMPLE CITY    | 06/14/18 |
+Enter City ID :
+```
+After entering the city ID you'll see
+```
+Please Enter new baranggay Name:
+```
+After Entering the new baranggay name you'll see:
+```
+Baranggay saved Successfully
+```
+**DELETING BARANGGAY**
+
+Run this code on your command line:
+```
+$ python manage.py crud --delete_baranggay
+```
+You’ll see the following output on the command line:
+```
+All Baranggay
+    ID    |   City   |Baranggay |Date Updated|
+    1     |   SAMPLECITY   |  SAMPLE_B  | 06/14/18 |
+Enter the ID of the baranggay you wish to delete :
+```
+After choosing the ID you'll see:
+```
+Successfully Deleted asdasd
+```
+
+##RESIDENT
+
+**ADDING NEW RESIDENT**
+Run this code on your command line:
+```
+python manage.py crud --add_resident
+```
+You’ll see the following output on the command line:
+```
+All Cities
+    ID    |   City   |Date Updated|
+    2     |SAMPLE CITY | 06/14/18 |
+Enter the ID of your city :
+```
+After choosing the CITY ID you'll see:
+```
+Baranggays from city 
+    ID    |   City   |Baranggay |Date Updated|
+    2     |   asd    | SAMPLE_b | 06/14/18 |
+Enter the ID of your Baranggay : 
+```
+After choosing the baranggay ID you'll see:
+```
+Enter street:
+Enter House Number 
+Enter your First Name:
+Enter you Middle Name : 
+Enter your Last Name :
+```
+After Entering date needed you'll see:
+```
+Successfully saved the data
+```
+**UPDATING RESIDENT**
+```
+python manage.py crud --update_resident
+         ID         |     First Name     |    Middle Name     |     Last Name      |        City        |     Baranggay      |       Street       |    House Number    |    Date Updated    |
+         1          | SAMPLE FIRST NAME  | SAMPLE MIDDLE NAME |  SAMPLE LAST NAME  |        asd         |      SAMPLE_b      |   SAMPLE STREET    |   SAMPLE HOUSE NO  |      06/14/18      |
+Enter resident ID to update :
+```
+
+
+

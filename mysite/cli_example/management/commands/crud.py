@@ -87,10 +87,10 @@ class Command(BaseCommand):
 			try:
 				resident  = resident_instance.objects.all()
 				
-				print("{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|".format("ID","First Name","Middle Name","Last Name", "City",
+				print("{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format("ID","First Name","Middle Name","Last Name", "City",
 					"Baranggay", "Street", "House Number","Date Updated"))
 				for obj in resident:
-					print("{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|{:^10}|".format(obj.id, obj.first_name, obj.middle_name, obj.last_name, obj.city.city,
+					print("{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format(obj.id, obj.first_name, obj.middle_name, obj.last_name, obj.city.city,
 						obj.baranggay.baranggay, obj.street, obj.house_no, 
 						obj.resident_date_created.strftime('%m/%d/%y')))
 			except resident_instant.DoesNotExist:
