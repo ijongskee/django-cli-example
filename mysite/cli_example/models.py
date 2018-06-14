@@ -9,8 +9,7 @@ class City(models.Model):
 	def __str__(self):
 		return self.city
 
-	def was_published_recently(self):
-		return self.date_created >= timezone.now() - datetime.timedelta(days-1)
+	
 
 class Baranggay(models.Model):
 	city = models.ForeignKey(City, on_delete=models.CASCADE)
