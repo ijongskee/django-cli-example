@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from cli_example.models import City as city_instance, Baranggay as baranggay_instance, Resident as resident_instance
+from cli_example.models import City , Baranggay , Resident 
 from django.utils import timezone
 
 
@@ -48,12 +48,12 @@ class Command(BaseCommand):
                 
             for search_string in options['search_string']:
                 try:
-                    resident= resident_instance.objects.filter(last_name__contains=search_string)
+                    resident= Resident.objects.filter(last_name__contains=search_string)
                     for obj in resident:
-                        print("{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format(obj.id, obj.first_name, obj.middle_name, obj.last_name, obj.city.city_name,
-                            obj.baranggay.baranggay_name, obj.street, obj.house_no, 
+                        print("{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format(obj.id, obj.first_name, obj.middle_name, obj.last_name, obj.city.name,
+                            obj.baranggay.name, obj.street, obj.house_no, 
                             obj.date_created.strftime('%m/%d/%y')))
-                except resident_instance.DoesNotExist:
+                except Resident.DoesNotExist:
                     raise CommandError('resident does not exist')
 
         if options['get_resident_by_first_name']:
@@ -62,12 +62,12 @@ class Command(BaseCommand):
                 print("{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format("ID","First Name","Middle Name","Last Name", "City",
                     "Baranggay", "Street", "House Number","Date Updated"))
                 try:
-                    resident = resident_instance.objects.filter(first_name__contains=search_string)
+                    resident = Resident.objects.filter(first_name__contains=search_string)
                     for obj in resident:
-                        print("{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format(obj.id, obj.first_name, obj.middle_name, obj.last_name, obj.city.city_name,
-                            obj.baranggay_name, obj.street, obj.house_no, 
+                        print("{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format(obj.id, obj.first_name, obj.middle_name, obj.last_name, obj.city.name,
+                            obj.name, obj.street, obj.house_no, 
                             obj.date_created.strftime('%m/%d/%y')))
-                except resident_instance.DoesNotExist:
+                except Resident.DoesNotExist:
                     raise CommandError('resident does not exist')
 
         
@@ -76,18 +76,18 @@ class Command(BaseCommand):
         if options['get_resident_by_baranggay']:
 
             for search_string in options['search_string']:
-                baranggay = baranggay_instance.objects.filter(baranggay__contains = search_string)
+                baranggay = Baranggay.objects.filter(baranggay__contains = search_string)
                 print("{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format("ID","First Name","Middle Name","Last Name", "City",
                     "Baranggay", "Street", "House Number","Date Created"))
                 try:
                     for baranggay_obj in baranggay:
-                        resident = resident_instance.objects.filter(baranggay = baranggay_obj.id)
+                        resident = Resident.objects.filter(baranggay = baranggay_obj.id)
                         for obj in resident:
-                            print("{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format(obj.id, obj.first_name, obj.middle_name, obj.last_name, obj.city.city_name,
-                                obj.baranggay_name, obj.street, obj.house_no, 
+                            print("{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format(obj.id, obj.first_name, obj.middle_name, obj.last_name, obj.city.name,
+                                obj.name, obj.street, obj.house_no, 
                                 obj.date_created.strftime('%m/%d/%y')))
                 
-                except resident_instance.DoesNotExist:
+                except Resident.DoesNotExist:
                     raise CommandError('resident does not exist')
 
 
@@ -96,15 +96,15 @@ class Command(BaseCommand):
             for search_string in options['search_string']:
                 print("{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format("ID","First Name","Middle Name","Last Name", "City",
                     "Baranggay", "Street", "House Number","Date Created"))
-                city = city_instance.objects.filter(city__contains= search_string)
+                city = City.objects.filter(city__contains= search_string)
                 
                 try:
                     for city_obj in city:
-                        resident = resident_instance.objects.filter(city=city_obj.id)
+                        resident = Resident.objects.filter(city=city_obj.id)
                         for obj in resident:
-                            print("{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format(obj.id, obj.first_name, obj.middle_name, obj.last_name, obj.city.city_name,
-                                obj.baranggay_name, obj.street, obj.house_no, 
+                            print("{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|{:^20}|".format(obj.id, obj.first_name, obj.middle_name, obj.last_name, obj.city.name,
+                                obj.name, obj.street, obj.house_no, 
                                 obj.date_created.strftime('%m/%d/%y')))
                 
-                except resident_instance.DoesNotExist:
+                except Resident.DoesNotExist:
                     raise CommandError('resident does not exist')
