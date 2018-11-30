@@ -35,6 +35,12 @@ For making a superuser, for you to login in the admin(server)
 ```
 $ python manage.py createsuperuser
 ```
+Note: Just leave blank your username.
+then..
+
+I.e Enter your email: nigs@gmail.com
+    Enter your password: **********
+ 
 And use the credentials that you have entered for the login.
 ENJOY!!!!
 ##USAGE
