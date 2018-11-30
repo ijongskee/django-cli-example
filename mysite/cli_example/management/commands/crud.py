@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-from cli_example.models import City , Baranggay, Resident 
+from cli_example.models import Province, City, Baranggay, Resident 
 from django.utils import timezone
 from datetime import datetime
 
