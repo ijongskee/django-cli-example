@@ -12,11 +12,36 @@ Using django-cli-example
 
 5.**VIEWING THE RESIDENT ADDED ON CURRENT DATE**
 
+6.**VIEWABLE IN THE SERVER WITH MANY MODELS**
 
+7. **CRUD AND FILTERINGS AND SEARCHS AND MANY DATABASE RELATIONSHIPS OF EVERY MODEL IN THE SERVER**
+
+**FOR SERVER**
+
+Run this code on your command line:
+
+```
+$ python manage.py makemigrations
+```
+```
+$ python manage.py migrate
+```
+```
+$ python manage.py runserver
+```
+
+For making a superuser, for you to login in the admin(server)
+
+```
+$ python manage.py createsuperuser
+```
+And use the credentials that you have entered for the login.
+ENJOY!!!!
 ##USAGE
 
 Change into the outer mysite directory, if you haven’t already.
 
+**FOR CLI**
 ## CITY
 
 **ADDING NEW CITY**
